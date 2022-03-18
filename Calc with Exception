@@ -1,0 +1,101 @@
+import java.util.*;
+
+class Operand_1
+{
+    int checkOperand_1(char operand_1)
+    {
+        try
+        {
+            if(operand_1>=48&&operand_1<=57)
+            {
+                int num1 = Integer.parseInt(String.valueOf(operand_1));
+                return num1;
+            }
+            else   
+                throw new Exception();
+        }
+        catch(Exception e) 
+        {
+            System.out.println("You misplaced the operand_1 with some others...");
+            return 0;
+        }
+    }
+}
+
+class Operator
+{
+    void checkOperator(char operator)
+    {
+        try
+        {
+            if(!(operator==42||operator==43||operator==45||operator==47))
+                throw new Exception();
+        }
+        catch(Exception e) 
+        {
+            System.out.println("You misplaced the operator with some others...");
+        }
+    }
+} 
+
+class Operand_2
+{
+    int checkOperand_2(char operand_2)
+    {
+        try
+        {
+            if(operand_2>=48&&operand_2<=57)
+            {
+                int num2 = Integer.parseInt(String.valueOf(operand_2));
+                return num2;
+            }
+            else   
+                throw new Exception();
+        }
+        catch(Exception e) 
+        {
+            System.out.println("You misplaced the operand_2 with some others...");
+            return 0;
+        }
+    }    
+}
+
+class Answer
+{
+    void answer(int num1,char operator,int num2)    
+    {    
+        if(operator=='+'&&num1>0&&num2>0)
+            System.out.println(num1+num2);   
+        else if(operator=='-'&&num1>0&&num2>0)
+            System.out.println(num1-num2);   
+        else if(operator=='*'&&num1>0&&num2>0)
+            System.out.println(num1*num2);   
+        else if(operator=='/'&&num1>0&&num2>0)
+            System.out.println(num1/num2);
+        else
+            System.out.println();
+    }    
+}
+
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc = new Scanner(System.in);
+		
+		char operand_1 = sc.next().charAt(0);
+		char operator = sc.next().charAt(0);
+		char operand_2 = sc.next().charAt(0);
+		
+		Operand_1 obj1 = new Operand_1();
+		Operand_2 obj2 = new Operand_2();
+		Operator obj = new Operator();
+		Answer ob = new Answer();
+		
+		int op1=obj1.checkOperand_1(operand_1);
+		obj.checkOperator(operator);
+		int op2=obj2.checkOperand_2(operand_2);
+
+		ob.answer(op1,operator,op2);
+	}
+}
