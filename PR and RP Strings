@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+class Alternate
+{
+    void checkPR(String word)
+    {
+        int count=0;
+        int len=word.length();
+        
+        if(word.charAt(0)=='P')
+        {
+            for(int i=0;i<len;i=i+2)
+            {
+                if(word.charAt(i)=='P')
+                {
+                    count++;
+                    if(i==len-1)
+                        break;
+                    if(word.charAt(i+1)=='R')
+                        count++;
+                }        
+            }        
+            if(count==len)
+                System.out.println("perfect");
+            else
+                System.out.println("imperfect");
+        }
+        
+        else if(word.charAt(0)=='R')
+        {
+            for(int j=0;j<len;j=j+2)
+            {
+                if(word.charAt(j)=='R')
+                    count++;
+                    if(j==len-1)
+                        break;
+                    if(word.charAt(j+1)=='P')
+                        count++;
+            }        
+            if(count==len)
+                System.out.println("perfect");
+            else
+                System.out.println("imperfect");
+        }
+    }
+}
+
+public class Main
+{
+    public static void main (String[] args) 
+    {
+        Scanner scan = new Scanner(System.in);
+        Alternate obj = new Alternate();
+        
+        String checkAlt = scan.nextLine();
+        
+        obj.checkPR(checkAlt);
+    }
+}
