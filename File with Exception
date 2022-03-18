@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    try
+	    {
+	        File file = new File("stud.txt");
+	        FileWriter myWriter = new FileWriter("stud.txt");
+	        
+            Scanner sc = new Scanner(System.in);
+            System.out.print("How many students are there: ");
+            int num=sc.nextInt();
+            for(int i=0;i<num;i++)
+            {
+                System.out.print("Enter the Student ID: ");
+                int stud_id = sc.nextInt();
+                System.out.print("Enter the Student name: ");
+                String stud_name = sc.next();
+                System.out.print("Enter the Student Age: ");
+                int stud_age = sc.nextInt();
+                System.out.print("Enter the Student Gender: ");
+                String stud_gen = sc.next();
+            
+                myWriter.write("Student ID is " + stud_id + "\nStudents's Name is " + stud_name + 
+                "\nStudent's Age is " + stud_age + "\nStudent's Gender is  " + stud_gen + "\n");
+            }
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+            
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) 
+            {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+	    }
+	    catch (IOException e) 
+	    {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+	    }
+    }    
+}
