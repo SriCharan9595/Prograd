@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main
+{
+    static void anagram(String word,int len)
+    {
+        int count=0;int z=0;
+        Scanner obj = new Scanner(System.in);
+        
+        System.out.print("Enter the no. of strings to compare: ");
+        int x=obj.nextInt();
+        for(int i=0;i<x;i++)
+        {
+            System.out.print("Enter the comparing string: ");
+            String str=obj.next();
+        
+            if(len == word.length()) 
+            {
+            char[] char1 = word.toCharArray();
+            char[] char2 = str.toCharArray();
+            Arrays.sort(char1);
+            Arrays.sort(char2);
+            boolean y = Arrays.equals(char1,char2);
+            if(y) 
+                count++;
+            else
+                 z++;
+            }
+            else
+                z++;
+        
+        }
+        System.out.println("No.of Anagrams are "+count);
+    }
