@@ -1,0 +1,43 @@
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
+
+
+class Year 
+{
+    int checkDate(String para) 
+    {
+        String str = "";
+ 
+        Set<String> unique = new HashSet<>();
+ 
+        for (int i = 0; i <para.length(); i++) {
+ 
+            if (Character.isDigit(para.charAt(i)))
+                str += (para.charAt(i));
+            
+            if (para.charAt(i) == '-')
+                str = "";
+                
+            if (str.length() == 4) 
+            {
+                unique.add(str);
+                str = "";
+            }
+        }
+        
+        return unique.size();
+    }
+}
+public class Main
+{
+    static public void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        Year obj = new Year();
+        
+        String paragraph = sc.nextLine();
+ 
+        System.out.println(obj.checkDate(paragraph));
+    }
+}
