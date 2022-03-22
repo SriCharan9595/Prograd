@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the size: ");
+        int size = scan.nextInt();
+        
+        int[] myArr = new int[size];
+        
+        System.out.print("Enter the elems: ");
+        for(int i=0;i<size;i++)
+        {
+            myArr[i] = scan.nextInt();
+        }
+        
+        System.out.print("Enter the int k: ");
+        int k = scan.nextInt();
+        int count = 0;
+        
+        for(int m=0;m<size;m++)
+        {
+            for(int n=m+1;n<size;n++)
+            {
+                if((myArr[m]*myArr[n])==k)
+                    count++;
+            }
+        }
+        System.out.print("No.of pairs: "+ count);
+    }
+}
