@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Main
+{
+    static void checkBrace(String brace)
+    {
+        int len = brace.length();
+        int cbo=0,cbc=0,sbo=0,sbc=0,rbo=0,rbc=0;
+        
+        for(int i=0;i<len;i++)
+        {
+            if(brace.charAt(i)=='{')
+                cbo++;
+            else if(brace.charAt(i)=='[')
+                sbo++;
+            else if(brace.charAt(i)=='(')
+                rbo++;
+            else if(brace.charAt(i)==')')
+                rbc++;
+            else if(brace.charAt(i)==']')
+                sbc++;
+            else if(brace.charAt(i)=='}')
+                cbc++;
+        }
+        
+        if(cbc>cbo)
+        {
+            for(int i=cbo;i<cbc;i++)
+                brace+='{';
+        }
+        else
+        {
+            for(int j=cbc;j<cbo;j++)
+                brace+='}';
+        }
+        
+        if(sbc>sbo)
+        {
+            for(int i=sbo;i<sbc;i++)
+                brace+='[';
+        }
+        else
+        {
+            for(int j=sbc;j<sbo;j++)
+                brace+=']';
+        }
+        
+        if(rbc>rbo)
+        {
+            for(int i=rbo;i<rbc;i++)
+                brace+='(';
+        }
+        else
+        {
+            for(int j=rbc;j<rbo;j++)
+                brace+=')';
+        }
+        
+        System.out.println(brace);
+   
+    }
+    
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the String: ");
+        String brace = scan.next();
+        
+        checkBrace(brace);
+    }
+}
